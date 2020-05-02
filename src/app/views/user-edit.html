@@ -1,0 +1,58 @@
+<div class="col-lg-12 form-edit">
+	<div class="row col-lg-12">
+		<div class="col-lg-2">
+			<h2>Mis datos</h2>
+		</div>
+		<div class="col-lg-10">
+			<div class="alert alert-success" role="alert" *ngIf="alertSuccess">
+ 			{{ alertMessage }}
+			</div>
+			<div class="alert alert-warning" role="alert" *ngIf="alertWarning">
+ 			{{ alertMessage }}
+			</div>
+		</div>
+	</div>
+	<div class="row col-lg-12">
+		<form #formUpdate="ngForm" (ngSubmit)="onSubmitUpdate()" class="col-md-9 columnForm">
+			<div class="row col-lg-12">
+				<div class="col-lg-4">
+					<label for="name">Nombre</label>
+				</div>
+				<div class="col-lg-8">
+					<input type="text" #name="ngModel" name="name" [(ngModel)]="userToUpdate.name" class="form-control" />
+				</div>
+			</div>
+			<div class="row col-lg-12">
+				<div class="col-lg-4">
+					<label for="surname">Apellido</label>
+				</div>
+				<div class="col-lg-8">
+					<input type="text" #surname="ngModel" name="surname" [(ngModel)]="userToUpdate.surname" class="form-control" />
+				</div>
+			</div>
+			<div class="row col-lg-12">
+				<div class="col-lg-4">
+					<label for="email">Correo</label>
+				</div>
+				<div class="col-lg-8">
+					<input type="text" #email="ngModel" name="email" [(ngModel)]="userToUpdate.email" class="form-control" />
+				</div>
+			</div>
+			<div class="row col-lg-12">
+				<div class="col-lg-4">
+					<label for="image">Imagen de perfil</label>
+				</div>
+				<div class="col-lg-8">
+					<span class="image" *ngIf="identity.image">
+						<img src="{{ url + 'get-image-user/' + identity.image }}" style="width: 200px; overflow: hidden;">
+					</span>
+					<div>
+						<input type="file" placeholder="Sube una imagen..." (change)="fileChangeEvent($event)" />
+					</div>
+				</div>
+			</div>
+			<div>
+				<input type="submit" value="Guardar" class="btn btn-primary" [disabled]="!formUpdate.valid"/>
+			</div>
+		</form>
+</div>

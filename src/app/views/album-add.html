@@ -1,0 +1,79 @@
+<div class="col-lg-12 form-edit" *ngIf="this.artist">
+	<div class="row col-lg-12">
+		<div class="col-lg-3">
+			<h2>{{ titulo }}</h2>
+		</div>
+		<div class="col-lg-9">
+			<div class="alert alert-success" role="alert" *ngIf="alertSuccess">
+ 			{{ alertMessage }}
+			</div>
+			<div class="alert alert-warning" role="alert" *ngIf="alertWarning">
+ 			{{ alertMessage }}
+			</div>
+		</div>
+	</div>
+	<div class="row col-lg-12">
+		<form #formAlbumAdd="ngForm" (ngSubmit)="onSubmitAdd()" class="col-md-9 columnForm">
+			<div class="row col-lg-12">
+				<div class="col-lg-4">
+					<label for="name">Título</label>
+				</div>
+				<div class="col-lg-8">
+					<input type="text" #name="ngModel" name="name" [(ngModel)]="album.title" class="form-control" />
+				</div>
+			</div>
+			<div class="row col-lg-12">
+				<div class="col-lg-4">
+					<label for="year">Año</label>
+				</div>
+				<div class="col-lg-8">
+					<input type="number" #year="ngModel" name="year" [(ngModel)]="album.year" class="form-control" />
+				</div>
+			</div>
+			<div class="row col-lg-12">
+				<div class="col-lg-4">
+					<label for="description">Descripción</label>
+				</div>
+				<div class="col-lg-8">
+					<textarea type="text" #description="ngModel" name="description" [(ngModel)]="album.description" class="form-control"></textarea>
+				</div>
+			</div>
+			<div class="row col-lg-12">
+				<div class="col-lg-4">
+					<label for="genre">Género</label>
+				</div>
+				<div class="col-lg-8">
+					<input type="text" #genre="ngModel" name="genre" [(ngModel)]="album.genre" class="form-control" />
+				</div>
+			</div>
+			<div class="row col-lg-12" *ngIf="artist">
+				<div class="col-lg-4">
+					<label for="artist">Artista</label>
+				</div>
+				<div class="col-lg-8">
+	  				<!--<select id="inputState" class="form-control" [(ngModel)]="artistaSeleccionado" [ngModelOptions]="{standalone: true}">
+	        			<option selected *ngIf="artist && artist.name">{{ artist.name }}</option>
+	        			<option selected *ngIf="!artist || !artist.name">Elige un artista...</option>
+	        			<option *ngFor="let artistOpc of artists" [ngValue]="artistOpc">{{ artistOpc.name }}</option>
+	      			</select>-->
+	      			<input type="text" #genre="ngModel" name="artist" [(ngModel)]="artist.name" class="form-control" [disabled]="true" />
+      			</div>
+			</div>
+			<div class="row col-lg-12">
+				<div class="col-lg-4">
+					<label for="image">Imagen</label>
+				</div>
+				<div class="col-lg-8">
+					<span class="image" *ngIf="album.image">
+						<img src="{{ url + 'get-image-album/' + album.image }}" style="width: 200px; overflow: hidden;">
+					</span>
+					<div>
+						<input type="file" placeholder="Sube una imagen..." (change)="fileChangeEvent($event)" />
+					</div>
+				</div>
+			</div>
+			<div>
+				<input type="submit" value="{{ titulo }}" class="btn btn-success" [disabled]="!formAlbumAdd.valid"/>
+			</div>
+		</form>
+</div>

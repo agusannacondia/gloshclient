@@ -1,0 +1,57 @@
+<div class="col-lg-12 song-add-multiple">
+	<div class="row col-lg-12 header">
+		<div class="col-lg-4 titulo">
+			<h2>{{ titulo }}</h2>
+		</div>
+		<div class="col-lg-4 busqueda">
+			<form #selectAlbum="ngForm">
+				<select id="inputAlbum" class="form-control" [(ngModel)]="albumSeleccionado" [ngModelOptions]="{standalone: true}">>
+	        			<option selected>Elige un álbum...</option>
+	        			<option *ngFor="let albumOpc of todosLosAlbums">{{ albumOpc.title }}</option>
+	      			</select>
+			</form>
+		</div>
+		<div class="col-lg-4 agregar-archivo">
+			<div>
+				<input class="btn btn-success" type="file" placeholder="Sube un archivo..." (change)="fileChangeEvent($event)" multiple [disabled]="!albumSeleccionado || albumSeleccionado == '' || albumSeleccionado == 'Elige un álbum...'"/>
+			</div>
+		</div>
+	</div>
+	<div *ngIf="songs" class="row col-lg-12 canciones">
+		<table class="table table-bordered table-responsive-md table-striped text-center">
+        <tr>
+          <th class="text-center">Numero</th>
+          <th class="text-center">Titulo</th>
+          <th class="text-center">Duracion</th>
+          <th class="text-center">Archivo</th>
+        </tr>
+        <tr *ngFor="let song of songs; let id = index">
+          <td>
+            <span contenteditable="true">{{song.number}}</span>
+          </td>
+          <td>
+            <span contenteditable="true">{{song.title}}</span>
+          </td>
+          <td>
+            <span contenteditable="true">{{song.duration}}</span>
+          </td>
+          <td>
+            <span>{{song.file}}</span>
+          </td>
+        </tr>
+      </table>
+	</div>
+	<div *ngIf="songs" class="row col-lg-12 botones">
+		<div [hidden]="alertSuccess || alertWarning" class="col-lg-9">
+			<div class="alert alert-success" role="alert" *ngIf="alertSuccess">
+	 			{{ alertMessage }}
+			</div>
+			<div class="alert alert-warning" role="alert" *ngIf="alertWarning">
+	 			{{ alertMessage }}
+			</div>
+		</div>
+		<div class="col-lg-3 align-self-end">
+			<button class="btn btn-success btnAgregar" (click)="agregarCanciones();">Agregar</button>
+		</div>
+	</div>
+</div>

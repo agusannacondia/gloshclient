@@ -1,0 +1,34 @@
+<div *ngIf="artist" class="artist-box">
+	<div class="jumbotron" style="background-image: url({{ url + 'get-image-artist/' + artist.image }});">
+  		<h1 class="display-4">{{ artist.name }}</h1>
+  		<p class="lead">{{ artist.description }}</p>
+  		<hr class="my-4">
+  		<a class="btn btn-primary btn-lg" [routerLink]="['/agregar-album/', artist._id]" role="button" *ngIf="identity.role == 'ROLE_ADMIN'">Agregar album</a>
+  		<a class="btn btn-primary btn-lg" [routerLink]="['/agregar-cancion/', artist._id]" role="button" *ngIf="identity.role == 'ROLE_ADMIN'">Agregar cancion</a>
+  		<a class="btn btn-primary btn-lg" [routerLink]="['/agregar-multiples/', artist._id]" role="button" *ngIf="identity.role == 'ROLE_ADMIN'">Agregar multiples</a>
+	</div>	
+	<div class="albums-box" *ngIf="albums">
+		<h3>Álbums</h3>
+		<ngx-slick-carousel class="carousel" 
+                        #slickModal="slick-carousel" 
+                        [config]="slideConfig">
+	        <div ngxSlickItem *ngFor="let album of albums" class="slide">
+	              <div (dblclick)="irAlAlbum(album._id)"><img src="{{ url + 'get-image-album/' + album.image }}"></div>
+	        </div>
+    	</ngx-slick-carousel>
+	</div>
+	<div class="songs-box" *ngIf="songs">
+		<h3>Canciones</h3>
+		<ngx-slick-carousel class="carousel" 
+                        #slickModal="slick-carousel" 
+                        [config]="slideConfigSong" *ngIf="songs">
+	        <div ngxSlickItem *ngFor="let song of songs" class="slide">
+	        	<div (dblclick)="startPlayer(song);" class="element" style="background-image: url({{url + 'get-image-album/' + song.album.image }}); -webkit-background-size: cover;-moz-background-size: cover; -o-background-size: cover; background-size: cover;">
+	        		<div class="texto">
+	        			<p>"{{ song.title }}"</p>
+	        		</div>
+	        	</div>
+	        </div>
+    	</ngx-slick-carousel>
+	</div>
+</div>

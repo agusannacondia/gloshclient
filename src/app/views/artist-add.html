@@ -1,0 +1,50 @@
+<div class="col-lg-12 form-edit" *ngIf="this.artist">
+	<div class="row col-lg-12">
+		<div class="col-lg-3">
+			<h2>{{ titulo }}</h2>
+		</div>
+		<div class="col-lg-9">
+			<div class="alert alert-success" role="alert" *ngIf="alertSuccess">
+ 			{{ alertMessage }}
+			</div>
+			<div class="alert alert-warning" role="alert" *ngIf="alertWarning">
+ 			{{ alertMessage }}
+			</div>
+		</div>
+	</div>
+	<div class="row col-lg-12">
+		<form #formArtistAdd="ngForm" (ngSubmit)="onSubmitAdd()" class="col-md-9 columnForm">
+			<div class="row col-lg-12">
+				<div class="col-lg-4">
+					<label for="name">Nombre</label>
+				</div>
+				<div class="col-lg-8">
+					<input type="text" #name="ngModel" name="name" [(ngModel)]="artist.name" class="form-control" />
+				</div>
+			</div>
+			<div class="row col-lg-12">
+				<div class="col-lg-4">
+					<label for="description">Descripción</label>
+				</div>
+				<div class="col-lg-8">
+					<textarea type="text" #description="ngModel" name="description" [(ngModel)]="artist.description" class="form-control"></textarea>
+				</div>
+			</div>
+			<div class="row col-lg-12">
+				<div class="col-lg-4">
+					<label for="image">Imagen</label>
+				</div>
+				<div class="col-lg-8">
+					<span class="image" *ngIf="artist.image">
+						<img src="{{ url + 'get-image-artist/' + artist.image }}" style="width: 200px; overflow: hidden;">
+					</span>
+					<div>
+						<input type="file" placeholder="Sube una imagen..." (change)="fileChangeEvent($event)" />
+					</div>
+				</div>
+			</div>
+			<div>
+				<input type="submit" value="{{ titulo }}" class="btn btn-success" [disabled]="!formArtistAdd.valid"/>
+			</div>
+		</form>
+</div>

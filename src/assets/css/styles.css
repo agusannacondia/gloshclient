@@ -1,0 +1,690 @@
+body{
+    background-color: #212123 !important;
+}
+
+#formLogin{
+	display: flex;
+	align-content: center;
+	height: 100vh;
+}
+
+#formLogin h2{
+	display: flex; 
+	justify-content: center;
+	color: white;
+}
+
+#formLogin label,
+#formLogin a,
+#formLogin span{
+	color: white;
+	text-decoration: none;
+}
+
+#formLogin .btn-primary{
+	background: #494545;
+	border-color: #797373;
+	margin-right: 30px;
+}
+
+#formLogin .row{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.form{
+	width: 100%;
+	margin: 0px auto;
+	background: rgba(0, 0, 0, 0.3);
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-radius: 10px;
+	border: 1px solid #ccc;
+	align-content: center !important;
+}
+
+.form .alert{
+	width: 75%;
+}
+
+.columnForm{
+	margin: 0px auto;
+}
+
+/* Usuario loggeado */ 
+#head-title{
+	display: block; 
+	font-size: 30px;
+	font-weight: bold;
+	margin-bottom: 25px;
+	text-decoration: none; 
+}
+
+#head-title a{
+	text-decoration: none; 
+	transition: transform 300ms;
+	color: white;
+}
+
+#head-title a:hover{
+	transform: scale(1.2);
+}
+
+.logo{
+	margin-top: 20px;
+	width: 12vh;
+	overflow: hidden;
+	transition: transform 300ms;
+}
+
+.logo:hover{
+	transform: scale(1.25);
+}
+
+.navigation{
+	text-align: center;
+	align-content: center;
+	color: white;
+	background: #1c1c1f;
+	height: 100vh;
+}
+
+.navigation a{
+	color: #ddd;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	display: block;
+	text-decoration: none; 
+	transition: opacity 300ms, transform 300ms;
+}
+
+.navigation a:hover{
+	opacity: 0.9;
+	transform: scale(1.05);
+}
+
+#navigation a{
+	text-decoration: none;
+	color: white;
+}
+
+#navigation a:hover{
+
+}
+
+.weather-now div{
+	margin-bottom: 20px;
+	margin-top: 15px;
+	display: block;
+}
+
+.weather-now .svg-inline--fa{
+	width: 100%;
+}
+
+
+.user-image{
+	transition: transform 300ms;
+}
+
+.user-image img{
+	width: 12vh; 
+	height:12vh; 
+	overflow: hidden;
+	object-fit: cover;
+    object-position: center center;
+}
+
+.user-image:hover{
+	transform: scale(1.05);
+}
+
+.user-image:active{
+
+}
+
+.navigation .btn{
+	width: 100%;
+}
+
+.body{
+	height: 100vh;
+	text-decoration: none; 
+}
+
+#userLogged{
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+}
+
+.actived{
+	border-bottom: 2px solid yellow;
+	padding-bottom: 2px;
+}
+
+/* Edit user */
+
+.form-edit .row{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.form-edit h2,
+.form-edit label{
+	color: white;
+}
+
+.form-edit .col-lg-4{
+	margin: auto;
+}
+
+.form-edit img{
+	width: 30vh;
+	height: 30vh;
+	overflow: hidden;
+	object-fit: cover;
+    object-position: center center;
+}
+
+/* Paginas */
+
+.head-page{
+	color: white;
+}
+
+/* Detalle artista */
+
+.artist-box{
+	margin-top: 0px;
+}
+
+.artist-box h1{
+	color: white;
+	font-weight: bold;
+}
+
+.artist-box .jumbotron{
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	color: white;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.artist-box .jumbotron .my-4{
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+.artist-box .jumbotron .btn{
+	margin-left: 10px;
+	margin-right: 10px;
+	background: rgba(255, 255, 255, 0.2);
+	border-radius: 0px;
+	border: 0px;
+}
+
+.artist-box .albums-box,
+.artist-box .songs-box{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: white;
+}
+
+/* core styles */
+.isystkSlider {
+  position: relative;
+  width: 650px;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.isystkSlider .view-layer {
+  width: 578px;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.isystkSlider ul.parent{
+  margin-bottom:10px;
+}
+
+.isystkSlider li.child{
+  float:left;
+}
+
+.isystkSlider li.child p{
+  margin:0 5px 0 0;
+  border:solid 1px #dedede;
+  background:#fff;
+  padding:3px;
+}
+
+.isystkSlider img{
+  vertical-align: middle;
+}
+
+/* controls */
+.isystkSlider .prev-btn,
+.isystkSlider .next-btn{
+  position: absolute;
+  top: 50%;
+  margin-top: -1em;
+  width: 30px;
+}
+
+.isystkSlider .prev-btn img,
+.isystkSlider .next-btn img{
+  width: 30px;
+}
+
+.isystkSlider .next-btn{
+  right: 0;
+}
+
+.isystkSlider .paging {
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+  margin: 6px;
+  width: 565px;
+}
+
+.isystkSlider .paging p{
+  margin:0 5px 0 0;
+  border:solid 1px #dedede;
+  background:#fff;
+  padding:3px;
+}
+
+.isystkSlider .paging.dot {
+  width: 24%;
+  margin: 5px auto;
+}
+
+.isystkSlider .paging.dot li {
+  border: 1px solid #666;
+  border-radius: 50%;
+  width: 7px;
+  height: 7px;
+  list-style-type: none;
+}
+
+.isystkSlider .paging.dot li.active {
+  background: #666;
+}
+
+.albums-box .carousel .slick-slide div{
+	height: 20vh;
+}
+
+.albums-box .carousel .slick-slide:focus {
+	outline:none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.albums-box .carousel img{
+	height: 100%;
+	margin: 0px auto;
+}
+
+.songs-box .carousel div{
+	height: 20vh;
+}
+
+.songs-box .carousel .slick-slide:focus {
+	outline:none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.songs-box .carousel .slick-slide {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.songs-box .carousel .slick-slide .element .texto{
+	color: white;
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+	font-style: italic;
+	font-size: 20px;
+	font-weight: bold;
+	background-color: rgba(0, 0, 0, 0.85);
+	display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.songs-box .carousel .slick-slide .element .texto p{
+	display: inline-block;
+}
+
+.songs-box .carousel img{
+	height: 100%;
+	margin: 0px auto;
+}
+
+/* Agregar cancion */
+
+#modalAddArtist .modal-content,
+#modalAddAlbum .modal-content{
+	background-color: rgba(52, 52, 52, 0.95);
+	color: white;
+}
+
+/* Detalle del album */
+
+.album-box .jumbotron{
+	width: 100%;
+	background-color: #212123;
+	padding: 2em;
+	margin-bottom: 0px;
+}
+
+.album-box .jumbotron .album-title{
+	color: white;
+	float: left;
+}
+
+.album-box .jumbotron .album-artist{
+	color: #ccc;
+	float: right;
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+}
+
+.album-box .jumbotron .album-genre{
+	color: white;
+	margin-bottom: 5px;
+}
+
+.album-box .jumbotron .album-description{
+	margin-top: 10px;
+	font-style: italic; 
+	font-family: Arial;
+	background-color: #cccccc;
+	color: black;
+	padding: 5px;
+	text-align: justify;
+	-webkit-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);
+	box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);
+	line-height: 20px;
+
+}
+
+.album-box .jumbotron .link-info{
+	color: white;
+	text-decoration: none;
+	transition: transform 300ms;
+}
+
+.album-box .jumbotron .link-info:hover{
+	transform: scale(2); 
+}
+
+.album-box .jumbotron .album-image-content{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.album-box .jumbotron .album-image{
+	width: 100%;
+	overflow: hidden;
+}
+
+.table td,
+.table th{
+	padding: 0.25rem !important;
+}
+
+/* Player reproductor */
+
+.player{
+	background: #324a61;
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	padding: 20px;
+	margin-left: -15px;
+}
+
+.player .titulo{
+	color: white;
+	font-weight: bold;
+}
+
+.player .artista{
+	font-style: italic;
+	color: #ccc;	
+}
+
+#player{
+	background: #f1f3f4;
+	width: 100%;
+}
+
+.player img{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	padding: 0px !important;
+}
+
+/* Login y register */
+
+.index-background{
+	width: 100%;
+	height: 100vh;
+	margin-right: 0px !important;
+	margin-left: 0px !important;
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+	background: url("../img/bg.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  z-index: 1;
+  position: relative;
+}
+
+.index-login{
+	position: absolute;
+	left: 50%;
+	top: 0px;
+	float: right;
+	z-index: 3;
+	background-color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.index-register{
+	position: absolute;
+	left: 0%;
+	top: 0px;
+	float: right;
+	z-index: 2;
+	background-color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.index-login-form{
+	width: 75%;
+}
+
+.index-register-form{
+	width: 100%;
+}
+
+.index-login .index-login-title,
+.index-login .index-login-space,
+.index-login .index-login-logo{
+	justify-content: center;
+	width: 100%;
+}
+
+.index-register .index-register-title,
+.index-register .index-register-space,
+.index-register .index-register-logo{
+	justify-content: center;
+	width: 100%;
+}
+
+.index-login .index-login-logo,
+.index-register .index-register-logo{
+	margin-bottom: 40px;
+}
+
+.index-login .index-login-logo img,
+.index-register .index-register-logo img{
+	width: 15vh;
+	overflow: hidden; 
+}
+
+.index-login .index-login-datos .index-login-correo,
+.index-login .index-login-datos .index-login-pass,
+.index-login .index-login-datos .index-login-btn{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.index-register .index-register-datos .index-register-nombre,
+.index-register .index-register-datos .index-register-apellido,
+.index-register .index-register-datos .index-register-correo,
+.index-register .index-register-datos .index-register-pass{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.index-login .index-login-datos .index-login-btn input,
+.index-login .index-login-datos .index-login-btn button{
+	background-color: #e6e1e1;
+	color: #000;
+	border-radius: 0px;
+	border-color: #e6e1e1;
+}
+
+.index-register .index-register-datos .index-register-btn input,
+.index-register .index-register-datos .index-register-btn button{
+	background-color: #e6e1e1;
+	color: #000;
+	border-radius: 0px;
+	border-color: #e6e1e1;
+}
+
+
+.index-login .index-login-datos .index-login-btn input:hover,
+.index-login .index-login-datos .index-login-btn button:hover{
+	background-color: #000;
+	color: #e6e1e1;
+	border-radius: 0px;
+	border-color: #000;
+}
+
+.index-login .index-login-datos .index-login-btn input{
+	float: right;
+}
+
+.index-login .index-login-datos .index-login-btn button{
+	float: left;
+}
+
+.index-login .index-login-btn a{
+	color: #000;
+	margin-top: 15px;
+	text-decoration: none;
+}
+
+.index-register{
+	float: right;
+	z-index: 2;
+	background-color: white;
+}
+
+#indexLogin{
+	animation-duration: 1s;
+  	animation-name: slidein;
+}
+
+#indexRegister{
+	animation-duration: 3s;
+  	animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+  	opacity: 0;
+  }
+
+  to {
+  	opacity: 1;
+  }
+}
+
+/* Agregar multiples canciones */
+
+.song-add-multiple {
+	margin-top: 20px;
+	color: white;
+}
+
+.song-add-multiple .header{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.song-add-multiple .busqueda{
+	display: inline-block;
+}
+
+.song-add-multiple .agregar-archivo{
+	display: inline-block;
+}
+
+.song-add-multiple table th{
+	background-color: #ccc;
+	color: black;
+	font-weight: bold;
+}
+
+.song-add-multiple table th{
+	background-color: #ccc;
+	color: black;
+	font-weight: bold;
+}
+
+.song-add-multiple table td{
+	background-color: #fff;
+	color: black;
+}
+
+.song-add-multiple .btnAgregar{
+	display: inline-block;
+	float: right;
+}
+
+.song-add-multiple .canciones{
+	margin-top: 15px;
+} 
+
+.song-add-multiple .botones{
+	margin-bottom: 30px;
+}

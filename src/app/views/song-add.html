@@ -1,0 +1,152 @@
+<div class="col-lg-12 form-edit">
+	<div class="row col-lg-12">
+		<div class="col-lg-3">
+			<h2>{{ titulo }}</h2>
+		</div>
+		<div class="col-lg-9">
+			<div class="alert alert-success" role="alert" *ngIf="alertSuccess">
+ 			{{ alertMessage }}
+			</div>
+			<div class="alert alert-warning" role="alert" *ngIf="alertWarning">
+ 			{{ alertMessage }}
+			</div>
+		</div>
+	</div>
+	<div class="row col-lg-12">
+		<form #formSongAdd="ngForm" (ngSubmit)="onSubmitAdd()" class="col-md-9 columnForm">
+			<div class="row col-lg-12">
+				<div class="col-lg-4">
+					<label for="title">Título</label>
+				</div>
+				<div class="col-lg-8">
+					<input type="text" #title="ngModel" name="title" [(ngModel)]="song.title" class="form-control" />
+				</div>
+			</div>
+			<div class="row col-lg-12">
+				<div class="col-lg-4">
+					<label for="number">Número</label>
+				</div>
+				<div class="col-lg-8">
+					<input type="number" #number="ngModel" name="number" [(ngModel)]="song.number" class="form-control" />
+				</div>
+			</div>
+			<div class="row col-lg-12">
+				<div class="col-lg-4">
+					<label for="duration">Duración</label>
+				</div>
+				<div class="col-lg-8">
+					<input type="text" #duration="ngModel" name="duration" [(ngModel)]="song.duration" class="form-control" />
+				</div>
+			</div>
+			<div class="row col-lg-12" *ngIf="artistaPorDefecto">
+				<div class="col-lg-4">
+					<label for="artist">Artista</label>
+				</div>
+				<div class="col-lg-8">
+	      			<input type="text" #artist="ngModel" name="artist" [(ngModel)]="artistaPorDefecto.name" class="form-control" [disabled]="true" />
+      			</div>
+			</div>
+			<div class="row col-lg-12">
+				<div class="col-lg-4">
+					<label for="album">Álbum</label>
+				</div>
+				<div class="col-lg-7">
+	  				<select id="inputAlbum" class="form-control" [(ngModel)]="albumSeleccionado" [ngModelOptions]="{standalone: true}">>
+	        			<option selected>Elige un álbum...</option>
+	        			<option *ngFor="let albumOpc of todosLosAlbums">{{ albumOpc.title }}</option>
+	      			</select>
+      			</div>
+      			<div class="col-lg-1">
+					<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalAddAlbum">+</button>
+				</div>
+			</div>
+			<div class="row col-lg-12">
+				<div class="col-lg-4">
+					<label for="image">Archivo .MP3</label>
+				</div>
+				<div class="col-lg-8">
+					<div>
+						<input type="file" placeholder="Sube un archivo..." (change)="fileChangeEvent($event)" />
+					</div>
+				</div>
+			</div>
+			<div>
+				<input type="submit" value="{{ titulo }}" class="btn btn-success" [disabled]="!formSongAdd.valid"/>
+			</div>
+		</form>
+</div>
+
+<!-- Modal agregar album -->
+<div class="modal fade bd-example-modal-xl" id="modalAddAlbum" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Agregar álbum</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #formAlbumAdd="ngForm" (ngSubmit)="onSubmitAddAlbum(); getAlbums();" class="col-md-9 columnForm">
+			<div class="row col-lg-12">
+				<div class="col-lg-4">
+					<label for="name">Título</label>
+				</div>
+				<div class="col-lg-8">
+					<input type="text" #name="ngModel" name="name" [(ngModel)]="albumACrear.title" class="form-control" />
+				</div>
+			</div>
+			<div class="row col-lg-12">
+				<div class="col-lg-4">
+					<label for="year">Año</label>
+				</div>
+				<div class="col-lg-8">
+					<input type="number" #year="ngModel" name="year" [(ngModel)]="albumACrear.year" class="form-control" />
+				</div>
+			</div>
+			<div class="row col-lg-12">
+				<div class="col-lg-4">
+					<label for="description">Descripción</label>
+				</div>
+				<div class="col-lg-8">
+					<textarea type="text" #description="ngModel" name="description" [(ngModel)]="albumACrear.description" class="form-control"></textarea>
+				</div>
+			</div>
+			<div class="row col-lg-12">
+				<div class="col-lg-4">
+					<label for="genre">Género</label>
+				</div>
+				<div class="col-lg-8">
+					<input type="text" #genre="ngModel" name="genre" [(ngModel)]="albumACrear.genre" class="form-control" />
+				</div>
+			</div>
+			<div class="row col-lg-12" *ngIf="artistaPorDefecto">
+				<div class="col-lg-4">
+					<label for="artist">Artista</label>
+				</div>
+				<div class="col-lg-8">
+	      			<input type="text" #artist="ngModel" name="artist" [(ngModel)]="artistaPorDefecto.name" class="form-control" [disabled]="true" />
+      			</div>
+			</div>
+			<div class="row col-lg-12">
+				<div class="col-lg-4">
+					<label for="image">Imagen</label>
+				</div>
+				<div class="col-lg-8">
+					<span class="image" *ngIf="albumACrear.image">
+						<img src="{{ url + 'get-image-album/' + albumACrear.image }}" style="width: 200px; overflow: hidden;">
+					</span>
+					<div>
+						<input type="file" placeholder="Sube una imagen..." (change)="fileChangeEvent($event)" />
+					</div>
+				</div>
+			</div>
+		</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-success" [disabled]="!formSongAdd.valid">Agregar</button>
+      </div>
+    </div>
+  </div>
+</div>

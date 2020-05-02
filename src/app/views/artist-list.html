@@ -1,0 +1,43 @@
+<div class="head-page">
+	<div class="row col-lg-12">
+		<div class="col-lg-3">
+			<h2>{{ titulo }}</h2>
+		</div>
+		<div class="col-lg-3">
+			<button ng-if="identity && identity.role == 'ROLE_ADMIN'" class="btn btn-secondary" [routerLink]="['/agregar-artista']">Agregar artista</button>
+		</div>
+		<div class="col-lg-6">
+			<p>Buscar...</p>
+		</div>
+	</div>
+	<ul class="pagination pull-right">
+		<li><a [routerLink]="['/artistas', prevPage]" style="font-size: 20px; font-weight: bold; color: white; text-decoration: none; float: left;"><</a></li>
+		<li><a [routerLink]="['/artistas', nextPage]" style="font-size: 20px; font-weight: bold; color: white; text-decoration: none; float: right;">></a></li>
+	</ul>
+	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" *ngIf="identity">
+	  <ol class="carousel-indicators">
+	    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+	    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+	    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+	    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+	    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+	  </ol>
+	  <div class="carousel-inner">
+	    <div class="carousel-item" style="height: 70vh;" *ngFor="let artist of artists;let indexOfElement=index;" [ngClass]="{'active': indexOfElement == 0}">
+		  <a [routerLink]="['/artista', artist._id]"><img src="{{ url + 'get-image-artist/' + artist.image }}" alt="First slide" style="width: 100%; overflow: hidden;"></a>
+		  <div class="carousel-caption d-none d-md-block">
+		    <h5>{{ artist.name }}</h5>
+		    <p>{{ artist.description }}</p>	
+		  </div>
+		</div>
+	  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+	    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+	    <span class="sr-only">Anterior</span>
+	  </a>
+	  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+	    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+	    <span class="sr-only">Siguiente</span>
+	  </a>
+	</div>
+	</div>
+</div>
