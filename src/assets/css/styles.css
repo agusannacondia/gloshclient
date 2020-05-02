@@ -612,6 +612,19 @@ body{
 	text-decoration: none;
 }
 
+.index-login-google{
+	transition: opacity 300ms;
+}
+
+.index-login-google:hover{
+	opacity: 0.9;
+}
+
+.index-login-recupero a{
+	font-weight: bold!important;
+	text-align: center; 
+}
+
 .index-register{
 	float: right;
 	z-index: 2;

@@ -106,15 +106,14 @@ export class AppComponent implements OnInit{
   	}
 
   	public onSubmitRegister(){
-
+      /*
       this.email = {
         'from': 'agustinannacondia@gmail.com',
         'to': this.userRegister.email,
         'subject': 'Bienvenido/a a Glosh',
         'name': this.userRegister.name
       };
-
-      console.log(this.email);
+      
 
       this._userService.sendConfirmationEmail(this.email).subscribe(
         response=>{
@@ -122,7 +121,7 @@ export class AppComponent implements OnInit{
        }, error=>{
          console.log(error);
        });
- 
+       */
 
       this._userService.signUp(this.userRegister).subscribe(
 
@@ -135,7 +134,7 @@ export class AppComponent implements OnInit{
             }else{
               this.alertMessageRegister = true;
               this.alertMessage = "El usuario se ha creado correctamente";
-              this.userRegister = new User('', '', '', '', '', 'ROLE_USER', '', '', false);
+              this.userRegister = new User('', '', '', '', '', 'ROLE_ADMIN', '', '', false);
             }
         },
         error => {
@@ -170,4 +169,8 @@ export class AppComponent implements OnInit{
              console.log(error)
          });
     }
+
+    onGoogleSignIn() {
+        
+      }
 }
