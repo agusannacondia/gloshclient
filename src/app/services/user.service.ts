@@ -90,7 +90,7 @@ export class UserService{
 
 	getClima(cp):Observable<any>{		
 
-		return this._http.get("http://api.openweathermap.org/data/2.5/weather?zip=" + cp + ",ar&appid=05980f47601d51205b16b54d011e9fdb");
+		return this._http.get("https://api.openweathermap.org/data/2.5/weather?zip=" + cp + ",ar&appid=05980f47601d51205b16b54d011e9fdb");
 	}
 
 }
